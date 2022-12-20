@@ -8,8 +8,13 @@ from birthday import BirthdayField, BirthdayManager
 class About(models.Model):
     name = models.CharField(max_length=60)
     title = models.CharField(max_length=80)
-    photo = models.ImageField(upload_to='photos/%y/%m/%d/')
+    background_photo = models.ImageField(upload_to='photos/%y/%m/%d/')
+    display_photo = models.ImageField(upload_to='photos/%y/%m/%d/')
     body = RichTextField()
+    city = models.CharField(max_length=30, default=False)
+    country = models.CharField(max_length=30, default=False)
+    phone = models.CharField(max_length=16, default=False)
+    email = models.EmailField(max_length=254, default=False)
     github_link = models.URLField(max_length=100)
     linkedin_link = models.URLField(max_length=100)
     instagram_link = models.URLField(max_length=100)
@@ -21,6 +26,14 @@ class About(models.Model):
     def __str__(self):
         return self.name
 
-    class Mete:
+    class Meta:
         verbose_name = 'About'
         verbose_name_plural = 'About'
+
+
+class Skill(models.Model):
+    name = models.CharField(max_length=80)
+    percentage = models.IntegerField()
+
+    def __str__(self):
+        return self.name

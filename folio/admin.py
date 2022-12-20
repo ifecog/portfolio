@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import About
+from .models import About, Skill
 from django.utils.html import format_html
 
 # Register your models here.
@@ -7,7 +7,7 @@ from django.utils.html import format_html
 
 class AboutAdmin(admin.ModelAdmin):
     def thumbnail(self, object):
-        return format_html('<img src="{}" width="40" style="border-radius: 50px;" />'.format(object.photo.url))
+        return format_html('<img src="{}" width="40" style="border-radius: 50px;" />'.format(object.background_photo.url))
 
     thumbnail.short_description = 'photo'
 
@@ -16,3 +16,4 @@ class AboutAdmin(admin.ModelAdmin):
 
 
 admin.site.register(About, AboutAdmin)
+admin.site.register(Skill)
