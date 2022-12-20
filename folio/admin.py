@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import About, Skill
+from .models import About, Skill, Resume
 from django.utils.html import format_html
 
 # Register your models here.
@@ -15,5 +15,11 @@ class AboutAdmin(admin.ModelAdmin):
     list_display_links = ('name', 'thumbnail', 'title')
 
 
+class SkillAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'percentage')
+    list_display_links = ['name']
+
+
 admin.site.register(About, AboutAdmin)
-admin.site.register(Skill)
+admin.site.register(Skill, SkillAdmin)
+admin.site.register(Resume)

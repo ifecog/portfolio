@@ -37,3 +37,10 @@ class Skill(models.Model):
 
     def __str__(self):
         return self.name
+
+class Resume(models.Model):
+    name = models.CharField(max_length=45)
+    document = models.FileField(upload_to='documents')
+    
+    def __str__(self):
+        return self.name
