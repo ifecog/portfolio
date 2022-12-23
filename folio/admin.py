@@ -7,7 +7,7 @@ from django.utils.html import format_html
 
 class AboutAdmin(admin.ModelAdmin):
     def thumbnail(self, object):
-        return format_html('<img src="{}" width="40" style="border-radius: 50px;" />'.format(object.background_photo.url))
+        return format_html('<img src="{}" width="40" style="border-radius: 50px;" />'.format(object.display_photo.url))
 
     thumbnail.short_description = 'photo'
 
@@ -28,7 +28,6 @@ class PortfolioAdmin(admin.ModelAdmin):
 
     list_display = ('id', 'thumbnail', 'title', 'web_url', 'github_url')
     list_display_links = ('title', 'thumbnail')
-
 
 
 admin.site.register(About, AboutAdmin)
