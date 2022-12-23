@@ -1,6 +1,7 @@
 from django.db import models
 from ckeditor.fields import RichTextField
 from birthday import BirthdayField, BirthdayManager
+from datetime import datetime
 
 # Create your models here.
 
@@ -8,7 +9,6 @@ from birthday import BirthdayField, BirthdayManager
 class About(models.Model):
     name = models.CharField(max_length=60)
     title = models.CharField(max_length=80)
-    background_photo = models.ImageField(upload_to='photos/%y/%m/%d/')
     display_photo = models.ImageField(upload_to='photos/%y/%m/%d/')
     body = RichTextField()
     city = models.CharField(max_length=30, default=False)
@@ -34,13 +34,35 @@ class About(models.Model):
 class Skill(models.Model):
     name = models.CharField(max_length=80)
     percentage = models.IntegerField()
+    upload_time = models.DateTimeField(blank=True, default=datetime.now)
 
     def __str__(self):
         return self.name
 
+
 class Resume(models.Model):
     name = models.CharField(max_length=45)
     document = models.FileField(upload_to='documents')
-    
+
+    def __str__(self):
+        return self.name
+
+
+class Portfolio(models.Model):
+    title = models.CharField(max_length=40)
+    photo = models.ImageField(upload_to='photos/%y/%m/%d/')
+    web_url = models.URLField(max_length=100)
+    github_url = models.URLField(max_length=100)
+    description = RichTextField()
+
+    def __str__(self):
+        return self.title
+
+
+class Service(models.Model):
+    name = models.CharField(max_length=60)
+    details = RichTextField()
+    upload_time = models.DateTimeField(blank=True, default=datetime.now)
+
     def __str__(self):
         return self.name

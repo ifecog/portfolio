@@ -1,9 +1,11 @@
 <!-- ======= Footer ======= -->
 <footer id="footer">
+  {% for about in abouts %}
   <div class="container">
     <div class="copyright">
-      <strong><span>© {% now 'Y' %}</br> Ifeoluwasamson90@gmail.com</span></strong>
+      <strong><span>© {% now 'Y' %}</br> <a href="mailto: {{about.email}}"  target="_blank">{{about.email}}</a></span></strong>
     </div>
   </div>
+  {% endfor %}
 </footer>
 <!-- End  Footer -->
