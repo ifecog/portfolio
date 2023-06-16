@@ -1,6 +1,5 @@
 from django.db import models
 from ckeditor.fields import RichTextField
-from birthday import BirthdayField, BirthdayManager
 from datetime import datetime
 
 # Create your models here.
@@ -19,9 +18,7 @@ class About(models.Model):
     linkedin_link = models.URLField(max_length=100)
     instagram_link = models.URLField(max_length=100)
     twitter_link = models.URLField(max_length=100)
-    birthday = BirthdayField()
 
-    objects = BirthdayManager()
 
     def __str__(self):
         return self.name
