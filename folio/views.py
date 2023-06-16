@@ -8,7 +8,7 @@ def home(request):
     abouts = About.objects.all()
     skills = Skill.objects.all().order_by('upload_time')
     resumes = Resume.objects.all()
-    portfolios = Portfolio.objects.all().order_by('-upload_time')
+    portfolios = Portfolio.objects.all().order_by('-id')
     services = Service.objects.all().order_by('-upload_time')
     context = {
         'abouts': abouts,
