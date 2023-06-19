@@ -9,6 +9,7 @@ class About(models.Model):
     name = models.CharField(max_length=60)
     title = models.CharField(max_length=80)
     display_photo = models.ImageField(upload_to='photos/%y/%m/%d/')
+    about_photo = models.ImageField(upload_to='photos/%y/%m/%d/')
     body = RichTextField()
     city = models.CharField(max_length=30, default=False)
     country = models.CharField(max_length=30, default=False)
