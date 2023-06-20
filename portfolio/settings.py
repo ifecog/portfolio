@@ -30,7 +30,7 @@ DEBUG = config('DEBUG', default=True, cast=bool)
 
 ALLOWED_HOSTS = ['ifeoluwailori.up.railway.app', '127.0.0:1', 'localhost']
 
-CSRF_TRUSTED_ORIGINS = ['https://portfolioife.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://ifeoluwailori.up.railway.app/']
 
 # Application definition
 
