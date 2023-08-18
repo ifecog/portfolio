@@ -16,7 +16,7 @@ class AboutAdmin(admin.ModelAdmin):
 
 
 class SkillAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'percentage', 'upload_time')
+    list_display = ('id', 'name', 'upload_time')
     list_display_links = ['name']
 
 

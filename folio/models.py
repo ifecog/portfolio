@@ -31,7 +31,6 @@ class About(models.Model):
 
 class Skill(models.Model):
     name = models.CharField(max_length=80)
-    percentage = models.IntegerField()
     upload_time = models.DateTimeField(blank=True, default=datetime.now)
 
     def __str__(self):
